@@ -1,4 +1,6 @@
-# S.O.L.I.D. PRINCIPLES IN JAVA
+# First Week
+
+## S.O.L.I.D. PRINCIPLES IN JAVA
 1. Single Responsibility Principle(SRP)
 * Bir sınıfın ya da bir metodun sadece tek bir görevi olmalıdır.
 
