@@ -60,7 +60,7 @@ değeri alır. Bu da uygulamayı yavaşlatır. Özelleştirmek istenirse @TableG
 - catalog
 - schema
 
-### TableGenerator
+### @TableGenerator
 * 11 farklı özellik sunar.
 
 ### @Column
@@ -99,4 +99,35 @@ kullanılacak tablolar yapılmadığı sürece EAGER olmamalı!
 - mappedBy : Çift yönlü ilişkilerde kullanılır. (Sadece bir tarafta var)
 - optional : Aradaki ilişki zorunlu mu değil mi belirlenir. Default true.
 - orphanRemoval :
-- targetEntity :
+- targetEntity : İlgili join'e ilişkin referans sınıfının belirtilmesine yarar. Normalde gerekmez. Çünkü referans sınıfı 
+zaten alanın tipinden, get mothodundan ya da collection'ların generic tipinden alınabilir. Ancak bazı durumlarda 
+bunların hiçbirine ulaşılamaz. Örn: public List kisiListesi. Generic tipi dahi belirlenmemiş. Böyle bir durumda 
+@targetEntity ile kisi.class denir. 
+
+### @ManyToMany
+* Entity içinde entity + aralarında çoktan çoka ilişki varsa kullanılır.
+* Örneğin kitap - yazar ilişkisi. -> Bir kitabın birden fazla yazarı olabilir ve bir yazar birden fazla kitap yazmış 
+olabilir.
+* 4 farklı özellik sunar.
+- fetch
+- cascade
+- mappedBy -> kullanıldığı entity'deki alan için databasede alan oluşmaz. Entity üzerinde bu alan tutulur.
+- targetEntity
+
+### @ManyToOne
+* Entity içinde entity kullanılıyor ve aralarında çoka bir ilişkisi varsa kullanılır. En sık kullanılandır.
+* Şehir ve ülke ilişkisi.
+* 4 farklı özellik sunar
+- fetch
+- cascade
+- optional
+- targetEntity
+
+### @OneToMany
+* Entity içinde entity kullanılıyor ve aralarında bire çok ilişkisi varsa kullanılır.
+* 5 farklı özellik sunar
+- fetch
+- cascade
+- mappedBy
+- orphanRemoval
+- targetEntity
