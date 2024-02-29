@@ -94,4 +94,6 @@ public class HousingService {
     public Double getAverageMeterOfHousing() {
         return (getAverageSquareMeterOfHouses() + getAverageSquareMeterOfVillas() + getAverageSquareMeterOfSummerHouses()) / 3;
     }
+
+
 }
