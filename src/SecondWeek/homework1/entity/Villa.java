@@ -4,4 +4,9 @@ public class Villa extends Housing {
     public Villa(Double price, int squareMeter, int numberOfRooms, int numberOfLivingRooms) {
         super(price, squareMeter, numberOfRooms, numberOfLivingRooms);
     }
+
+    @Override
+    public String toString() {
+        return "Villa{" + super.toString() + "}";
+    }
 }

@@ -44,4 +44,13 @@ public abstract class Housing {
         this.numberOfRooms = numberOfRooms;
         this.numberOfLivingRooms = numberOfLivingRooms;
     }
+
+    @Override
+    public String toString() {
+        return "price=" + price +
+                ", squareMeter=" + squareMeter +
+                ", numberOfRooms=" + numberOfRooms +
+                ", numberOfLivingRooms=" + numberOfLivingRooms +
+                '}';
+    }
 }
