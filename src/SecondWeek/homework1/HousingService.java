@@ -57,4 +57,41 @@ public class HousingService {
     public Long getTotalPriceOfAllHousing() {
         return getTotalPriceOfHouses() + getTotalPriceOfVillas() + getTotalPriceOfSummerHouses();
     }
+
+    public Double getAverageSquareMeterOfHouses() {
+        if (inventory.getHouseList().isEmpty()) {
+            return 0.0;
+        }
+        int sum = 0;
+        for (House house : inventory.getHouseList()) {
+            sum += house.getSquareMeter();
+        }
+        return (double) sum / inventory.getHouseList().size();
+    }
+
+    public Double getAverageSquareMeterOfVillas() {
+        if (inventory.getVillaList().isEmpty()) {
+            return 0.0;
+        }
+        int sum = 0;
+        for (Villa villa : inventory.getVillaList()) {
+            sum += villa.getSquareMeter();
+        }
+        return (double) sum / inventory.getVillaList().size();
+    }
+
+    public Double getAverageSquareMeterOfSummerHouses() {
+        if (inventory.getSummerHouseList().isEmpty()) {
+            return 0.0;
+        }
+        int sum = 0;
+        for (SummerHouse summerHouse : inventory.getSummerHouseList()) {
+            sum += summerHouse.getSquareMeter();
+        }
+        return (double) sum / inventory.getSummerHouseList().size();
+    }
+
+    public Double getAverageMeterOfHousing() {
+        return (getAverageSquareMeterOfHouses() + getAverageSquareMeterOfVillas() + getAverageSquareMeterOfSummerHouses()) / 3;
+    }
 }

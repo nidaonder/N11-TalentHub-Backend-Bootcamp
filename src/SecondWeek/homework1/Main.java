@@ -43,5 +43,11 @@ public class Main {
         System.out.println("Total price of villas = " + service.getTotalPriceOfVillas());
         System.out.println("Total price of summer houses = " + service.getTotalPriceOfSummerHouses());
         System.out.println("Total price of all housings = " + service.getTotalPriceOfAllHousing());
+
+        System.out.println("Average square meter of houses = " + service.getAverageSquareMeterOfHouses());
+        System.out.println("Average square meter of villas = " + service.getAverageSquareMeterOfVillas());
+        System.out.println("Average square meter of summer houses = " + service.getAverageSquareMeterOfSummerHouses());
+        System.out.println("Average square meter of housing = " + service.getAverageMeterOfHousing());
+
     }
 }
