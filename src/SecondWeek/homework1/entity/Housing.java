@@ -1,16 +1,16 @@
 package SecondWeek.homework1.entity;
 
 public abstract class Housing {
-    private Double price;
+    private Long price;
     private int squareMeter;
     private int numberOfRooms;
     private int numberOfLivingRooms;
 
-    public Double getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
@@ -38,7 +38,7 @@ public abstract class Housing {
         this.numberOfLivingRooms = numberOfLivingRooms;
     }
 
-    public Housing(Double price, int squareMeter, int numberOfRooms, int numberOfLivingRooms) {
+    public Housing(Long price, int squareMeter, int numberOfRooms, int numberOfLivingRooms) {
         this.price = price;
         this.squareMeter = squareMeter;
         this.numberOfRooms = numberOfRooms;

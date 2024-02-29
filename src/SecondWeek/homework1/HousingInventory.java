@@ -1,6 +1,7 @@
 package SecondWeek.homework1;
 
 import SecondWeek.homework1.entity.House;
+import SecondWeek.homework1.entity.Housing;
 import SecondWeek.homework1.entity.SummerHouse;
 import SecondWeek.homework1.entity.Villa;
 
