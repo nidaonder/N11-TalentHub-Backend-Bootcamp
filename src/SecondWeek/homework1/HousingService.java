@@ -29,4 +29,32 @@ public class HousingService {
             System.out.println(summerHouse.toString());
         }
     }
+
+    public Long getTotalPriceOfHouses() {
+        long sum = 0;
+        for (House house : inventory.getHouseList()) {
+            sum += house.getPrice();
+        }
+        return sum;
+    }
+
+    public Long getTotalPriceOfVillas() {
+        long sum = 0;
+        for (Villa villa : inventory.getVillaList()) {
+            sum += villa.getPrice();
+        }
+        return sum;
+    }
+
+    public Long getTotalPriceOfSummerHouses() {
+        long sum = 0;
+        for (SummerHouse summerHouse : inventory.getSummerHouseList()) {
+            sum += summerHouse.getPrice();
+        }
+        return sum;
+    }
+
+    public Long getTotalPriceOfAllHousing() {
+        return getTotalPriceOfHouses() + getTotalPriceOfVillas() + getTotalPriceOfSummerHouses();
+    }
 }
