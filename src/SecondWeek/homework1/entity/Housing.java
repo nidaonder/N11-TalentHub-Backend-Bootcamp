@@ -1,4 +1,4 @@
-package SecondWeek.homework1;
+package SecondWeek.homework1.entity;
 
 public abstract class Housing {
     private Double price;
