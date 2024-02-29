@@ -38,5 +38,4 @@ public class HousingInventory {
     public void addSummerHouse(SummerHouse summerHouse) {
         this.summerHouseList.add(summerHouse);
     }
-
 }
