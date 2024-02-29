@@ -1,8 +1,12 @@
 package SecondWeek.homework1;
 
 import SecondWeek.homework1.entity.House;
+import SecondWeek.homework1.entity.Housing;
 import SecondWeek.homework1.entity.SummerHouse;
 import SecondWeek.homework1.entity.Villa;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HousingService {
 
@@ -95,5 +99,13 @@ public class HousingService {
         return (getAverageSquareMeterOfHouses() + getAverageSquareMeterOfVillas() + getAverageSquareMeterOfSummerHouses()) / 3;
     }
 
-
+    public List<Housing> filterByRoomsAndLivingRooms(int numberOfRooms, int numberOfLivingRooms) {
+        List<Housing> filteredList = new ArrayList<>();
+        for (Housing housing : inventory.getAllHousingList()) {
+            if ((housing.getNumberOfRooms() == numberOfRooms) && (housing.getNumberOfLivingRooms() == numberOfLivingRooms)) {
+                filteredList.add(housing);
+            }
+        }
+        return filteredList;
+    }
 }

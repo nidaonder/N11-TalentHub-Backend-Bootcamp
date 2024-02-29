@@ -36,18 +36,27 @@ public class Main {
         HousingService service = new HousingService(inventory);
 
         service.printHouses();
+        System.out.println();
         service.printVillas();
+        System.out.println();
         service.printSummerHouse();
+
+        System.out.println();
 
         System.out.println("Total price of houses = " + service.getTotalPriceOfHouses());
         System.out.println("Total price of villas = " + service.getTotalPriceOfVillas());
         System.out.println("Total price of summer houses = " + service.getTotalPriceOfSummerHouses());
         System.out.println("Total price of all housings = " + service.getTotalPriceOfAllHousing());
 
+        System.out.println();
+
         System.out.println("Average square meter of houses = " + service.getAverageSquareMeterOfHouses());
         System.out.println("Average square meter of villas = " + service.getAverageSquareMeterOfVillas());
         System.out.println("Average square meter of summer houses = " + service.getAverageSquareMeterOfSummerHouses());
         System.out.println("Average square meter of housing = " + service.getAverageMeterOfHousing());
 
+        System.out.println();
+
+        System.out.println("filter = " + service.filterByRoomsAndLivingRooms(3,1));
     }
 }
