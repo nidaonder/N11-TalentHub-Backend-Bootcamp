@@ -1,4 +1,4 @@
-# N11 TalentHub Backend Bootcamp Homework-1
+# Homework-1
 
 This project is a Java application designed to keep inventory of various types of residences (House, Villa, SummerHouse).
 For each housing type, features such as price, square meter, number of rooms and number of living rooms are stored and 
