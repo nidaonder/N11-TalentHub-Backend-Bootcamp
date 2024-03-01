@@ -67,5 +67,17 @@ public class App
         manager.addInvoice(invoice4);
         manager.addInvoice(invoice5);
         manager.addInvoice(invoice6);
+
+        System.out.println("\nCUSTOMERS;");
+        manager.listAllCustomers();
+
+        System.out.println("\nORDERS;");
+        manager.listAllOrders();
+
+        System.out.println("\nINVOICES;");
+        manager.listAllInvoices();
+
+        System.out.println("\nCustomers containing the letter C;");
+        manager.listCustomerWithC();
     }
 }

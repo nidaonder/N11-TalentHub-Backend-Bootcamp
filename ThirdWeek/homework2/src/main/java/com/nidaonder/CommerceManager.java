@@ -6,6 +6,7 @@ import com.nidaonder.entity.Order;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CommerceManager {
     private final List<Customer> customerList = new ArrayList<>();
@@ -29,7 +30,6 @@ public class CommerceManager {
                 .anyMatch(c -> c.getId().equals(customer.getId()));
         if (!exists) {
             customerList.add(customer);
-            System.out.println("Customer added successfully");
         } else {
             System.out.println("The customer with this id already exists.");
         }
@@ -39,7 +39,6 @@ public class CommerceManager {
         boolean exists = orderSet.stream().anyMatch(o -> o.getId().equals(order.getId()));
         if (!exists) {
             orderSet.add(order);
-            System.out.println(("Order added successfully"));
         } else {
             System.out.println("The order with this id already exists.");
         }
@@ -48,7 +47,6 @@ public class CommerceManager {
     public void addInvoice(Invoice invoice) {
         if (!invoiceMap.containsKey(invoice.getId())) {
             invoiceMap.put(invoice.getId(), invoice);
-            System.out.println("Invoice added successfully");
         } else {
             System.out.println("The invoice with this id already exists.");
         }
@@ -64,5 +62,12 @@ public class CommerceManager {
 
     public void listAllInvoices(){
         invoiceMap.forEach((key, value) -> System.out.println(key + " : " + value));
+    }
+
+    public void listCustomerWithC(){
+        List<Customer> filteredList = customerList.stream()
+                .filter(customer -> customer.getFullName().toLowerCase().contains("c"))
+                .collect(Collectors.toList());
+        filteredList.forEach(customer -> System.out.println(customer.getFullName()));
     }
 }
