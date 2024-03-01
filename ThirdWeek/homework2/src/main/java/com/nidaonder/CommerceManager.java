@@ -9,6 +9,7 @@ import java.math.RoundingMode;
 import java.time.Month;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class CommerceManager {
     private final List<Customer> customerList = new ArrayList<>();
@@ -108,5 +109,20 @@ public class CommerceManager {
 
         BigDecimal averageOfAmount = totalAmount.divide(new BigDecimal(size), 2, RoundingMode.HALF_UP);
         System.out.println(averageOfAmount);
+    }
+
+    public void customerOfInvoiceUnder500(){
+        List<Long> filteredInvoicesOrderId = invoiceMap.values().stream()
+                .filter(invoice -> invoice.getAmount().compareTo(new BigDecimal("500.00")) < 0)
+                .map(Invoice::getOrderId)
+                .collect(Collectors.toList());
+        List<Long> filteredCustomerId = orderSet.stream()
+                .filter(order -> filteredInvoicesOrderId.contains(order.getId()))
+                .map(Order::getCustomerId)
+                .collect(Collectors.toList());
+
+        customerList.stream()
+                .filter(customer -> filteredCustomerId.contains(customer.getId()))
+                .forEach(customer -> System.out.println(customer.getFullName()));
     }
 }

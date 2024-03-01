@@ -60,6 +60,8 @@ public class App
         Invoice invoice4 = new Invoice(4L, new BigDecimal("2099.00"), 5L);
         Invoice invoice5 = new Invoice(5L, new BigDecimal("5000.00"), 4L);
         Invoice invoice6 = new Invoice(6L, new BigDecimal("500.00"), 3L);
+        Invoice invoice7 = new Invoice(7L, new BigDecimal("90.90"), 3L);
+
 
         manager.addInvoice(invoice1);
         manager.addInvoice(invoice2);
@@ -67,6 +69,7 @@ public class App
         manager.addInvoice(invoice4);
         manager.addInvoice(invoice5);
         manager.addInvoice(invoice6);
+        manager.addInvoice(invoice7);
 
         System.out.println("\nCUSTOMERS;");
         manager.listAllCustomers();
@@ -88,5 +91,8 @@ public class App
 
         System.out.println("\nAverage of invoices over 1500 TL");
         manager.averageOfInvoicesOver1500();
+
+        System.out.println("\nNames of customers with invoices under 500 TL registered in the system;");
+        manager.customerOfInvoiceUnder500();
     }
 }
