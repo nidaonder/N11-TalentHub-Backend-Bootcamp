@@ -33,12 +33,26 @@ public class App
                 6L, "Cansu Yildiz", LocalDate.of(2023,11,4)
         );
 
+        manager.addCustomer(customer1);
+        manager.addCustomer(customer2);
+        manager.addCustomer(customer3);
+        manager.addCustomer(customer4);
+        manager.addCustomer(customer5);
+        manager.addCustomer(customer6);
+
         Order order1 = new Order(1L, 2L, LocalDate.of(2023,7,4));
         Order order2 = new Order(2L, 4L, LocalDate.of(2022, 6, 5));
         Order order3 = new Order(3L, 3L, LocalDate.of(2023, 5, 5));
         Order order4 = new Order(4L, 2L, LocalDate.of(2023,6,11));
         Order order5 = new Order(5L, 1L, LocalDate.of(2020, 6, 11));
         Order order6 = new Order(6L, 4L, LocalDate.of(2023,6,12));
+
+        manager.addOrder(order1);
+        manager.addOrder(order2);
+        manager.addOrder(order3);
+        manager.addOrder(order4);
+        manager.addOrder(order5);
+        manager.addOrder(order6);
 
         Invoice invoice1 = new Invoice(1L, new BigDecimal("99.90"), 1L);
         Invoice invoice2 = new Invoice(2L, new BigDecimal("109.99"), 2L);
@@ -47,7 +61,11 @@ public class App
         Invoice invoice5 = new Invoice(5L, new BigDecimal("5000.00"), 4L);
         Invoice invoice6 = new Invoice(6L, new BigDecimal("500.00"), 3L);
 
-        manager.addCustomer(customer1);
-        manager.addCustomer(customer2);
+        manager.addInvoice(invoice1);
+        manager.addInvoice(invoice2);
+        manager.addInvoice(invoice3);
+        manager.addInvoice(invoice4);
+        manager.addInvoice(invoice5);
+        manager.addInvoice(invoice6);
     }
 }
