@@ -82,5 +82,8 @@ public class App
 
         System.out.println("\nTotal invoices of customers registered in June;");
         manager.sumJuneCustomerInvoices();
+
+        System.out.println("\nInvoices over 1500 TL registered in the system;");
+        manager.listInvoicesOver1500();
     }
 }

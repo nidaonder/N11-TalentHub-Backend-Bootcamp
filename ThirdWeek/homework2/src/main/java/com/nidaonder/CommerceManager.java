@@ -89,4 +89,10 @@ public class CommerceManager {
 
         System.out.println(totalAmount);
     }
+
+    public void listInvoicesOver1500(){
+        invoiceMap.values().stream()
+                .filter(invoice -> invoice.getAmount().compareTo(new BigDecimal("1500.00")) > 0)
+                .forEach(System.out::println);
+    }
 }
