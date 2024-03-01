@@ -5,6 +5,7 @@ import com.nidaonder.entity.Invoice;
 import com.nidaonder.entity.Order;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.Month;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -94,5 +95,18 @@ public class CommerceManager {
         invoiceMap.values().stream()
                 .filter(invoice -> invoice.getAmount().compareTo(new BigDecimal("1500.00")) > 0)
                 .forEach(System.out::println);
+    }
+
+    public void averageOfInvoicesOver1500(){
+        List<BigDecimal> filteredAmountList = invoiceMap.values().stream()
+                .map(Invoice::getAmount)
+                .filter(amount -> amount.compareTo(new BigDecimal("1500.00")) > 0)
+                .collect(Collectors.toList());
+        int size = filteredAmountList.size();
+        BigDecimal totalAmount = filteredAmountList.stream()
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        BigDecimal averageOfAmount = totalAmount.divide(new BigDecimal(size), 2, RoundingMode.HALF_UP);
+        System.out.println(averageOfAmount);
     }
 }

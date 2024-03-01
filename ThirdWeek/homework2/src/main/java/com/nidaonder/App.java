@@ -85,5 +85,8 @@ public class App
 
         System.out.println("\nInvoices over 1500 TL registered in the system;");
         manager.listInvoicesOver1500();
+
+        System.out.println("\nAverage of invoices over 1500 TL");
+        manager.averageOfInvoicesOver1500();
     }
 }
