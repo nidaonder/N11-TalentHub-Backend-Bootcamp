@@ -79,5 +79,8 @@ public class App
 
         System.out.println("\nCustomers containing the letter C;");
         manager.listCustomerWithC();
+
+        System.out.println("\nTotal invoices of customers registered in June;");
+        manager.sumJuneCustomerInvoices();
     }
 }

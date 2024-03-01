@@ -5,6 +5,7 @@ import com.nidaonder.entity.Invoice;
 import com.nidaonder.entity.Order;
 
 import java.math.BigDecimal;
+import java.time.Month;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -69,5 +70,23 @@ public class CommerceManager {
                 .filter(customer -> customer.getFullName().toLowerCase().contains("c"))
                 .collect(Collectors.toList());
         filteredList.forEach(customer -> System.out.println(customer.getFullName()));
+    }
+
+    public void sumJuneCustomerInvoices() {
+        List<Long> customerIdInJune = customerList.stream()
+                .filter(customer -> customer.getRegistrationDate().getMonth() == Month.JUNE)
+                .map(Customer::getId)
+                .collect(Collectors.toList());
+        List<Long> orderIdForJuneCustomer = orderSet.stream()
+                .filter(order -> customerIdInJune.contains(order.getCustomerId()))
+                .map(Order::getId)
+                .collect(Collectors.toList());
+
+        BigDecimal totalAmount = invoiceMap.values().stream()
+                .filter(invoice -> orderIdForJuneCustomer.contains(invoice.getOrderId()))
+                .map(Invoice::getAmount)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        System.out.println(totalAmount);
     }
 }
