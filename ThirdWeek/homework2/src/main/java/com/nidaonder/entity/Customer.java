@@ -1,15 +1,35 @@
 package com.nidaonder.entity;
 
+import com.nidaonder.enums.CustomerType;
+
 import java.time.LocalDate;
 
 public class Customer extends BaseEntity {
     private String fullName;
     private LocalDate registrationDate;
 
+    private CustomerType customerType;
+
     public Customer(Long id, String fullName, LocalDate registrationDate) {
+        super(id);
+        this.customerType = CustomerType.PERSONAL_CUSTOMER;
+        this.fullName = fullName;
+        this.registrationDate = registrationDate;
+    }
+
+    public Customer(Long id, String fullName, LocalDate registrationDate, CustomerType customerType) {
         super(id);
         this.fullName = fullName;
         this.registrationDate = registrationDate;
+        this.customerType = customerType;
+    }
+
+    public CustomerType getCustomerType() {
+        return customerType;
+    }
+
+    public void setCustomerType(CustomerType customerType) {
+        this.customerType = customerType;
     }
 
     public String getFullName() {
@@ -31,9 +51,9 @@ public class Customer extends BaseEntity {
     @Override
     public String toString() {
         return "Customer{" +
-                super.toString() +
                 "fullName='" + fullName + '\'' +
                 ", registrationDate=" + registrationDate +
+                ", customerType=" + customerType +
                 '}';
     }
 }

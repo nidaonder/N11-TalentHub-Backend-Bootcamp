@@ -5,10 +5,12 @@ import java.time.LocalDate;
 public class Order extends BaseEntity {
     private LocalDate orderDate;
     private Long customerId;
+    private Long invoiceId;
 
-    public Order(Long id, Long customerId, LocalDate orderDate) {
+    public Order(Long id, Long customerId, LocalDate orderDate,Long invoiceId ) {
         super(id);
         this.customerId = customerId;
+        this.invoiceId = invoiceId;
         this.orderDate = orderDate;
     }
 
@@ -26,6 +28,14 @@ public class Order extends BaseEntity {
 
     public void setCustomerId(Long customerId) {
         this.customerId = customerId;
+    }
+
+    public Long getInvoiceId() {
+        return invoiceId;
+    }
+
+    public void setInvoiceId(Long invoiceId) {
+        this.invoiceId = invoiceId;
     }
 
     @Override

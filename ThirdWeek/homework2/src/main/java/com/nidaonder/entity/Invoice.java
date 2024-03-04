@@ -5,11 +5,21 @@ import java.math.BigDecimal;
 public class Invoice extends BaseEntity {
     private BigDecimal amount;
     private Long orderId;
+    private Long customerId;
 
-    public Invoice(Long id, BigDecimal amount, Long orderId) {
+    public Invoice(Long id, BigDecimal amount,Long orderId, Long customerId) {
         super(id);
         this.amount = amount;
+        this.customerId = customerId;
         this.orderId = orderId;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
     public BigDecimal getAmount() {
