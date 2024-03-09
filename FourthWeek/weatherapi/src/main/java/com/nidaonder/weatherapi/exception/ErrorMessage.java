@@ -4,7 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum ErrorMessage implements BaseErrorMessage {
-    ITEM_NOT_FOUND("Item not found!");
+    INVALID_JSON_FORMAT("The entered JSON data is invalid!"),
+    NO_MATCH_FOUND("No match found!");
 
     private final String message;
 
