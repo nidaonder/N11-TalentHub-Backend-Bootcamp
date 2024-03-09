@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class WeatherController {
 
-    //TODO disable H2 db@@@@@@@@@@@@@@@@@@@@@@@@@@@
     private final WeatherService weatherService;
 
     @GetMapping("/daily/{city}")
