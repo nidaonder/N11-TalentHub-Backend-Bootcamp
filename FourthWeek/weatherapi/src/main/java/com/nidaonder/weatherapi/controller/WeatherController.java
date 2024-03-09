@@ -22,12 +22,12 @@ public class WeatherController {
     }
 
     @GetMapping("/weekly/{city}")
-    public ResponseEntity<String> getWeeklyWeather(@PathVariable String city){
+    public ResponseEntity<JSONObject> getWeeklyWeather(@PathVariable String city){
         return weatherService.getWeeklyWeather(city);
     }
 
     @GetMapping("/monthly/{city}")
-    public ResponseEntity<String> getMonthlyWeather(@PathVariable String city){
+    public ResponseEntity<JSONObject> getMonthlyWeather(@PathVariable String city){
         return weatherService.getMonthlyWeather(city);
     }
 

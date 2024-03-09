@@ -35,15 +35,27 @@ public class WeatherService {
         }
     }
 
-    public ResponseEntity<String> getWeeklyWeather(String city){
+    public ResponseEntity<JSONObject> getWeeklyWeather(String city){
         String url = BASE_URL + "/forecast.json" + "?key=" + API_KEY + "&q=" + city + "&days=7&aqi=no&alerts=no";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
-        return ResponseEntity.ok().body(response.getBody());
+        JSONParser parser = new JSONParser();
+        try {
+            JSONObject json = (JSONObject) parser.parse(response.getBody());
+            return ResponseEntity.ok().body(json);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public ResponseEntity<String> getMonthlyWeather(String city){
+    public ResponseEntity<JSONObject> getMonthlyWeather(String city){
         String url = BASE_URL + "/future.json" + "?key=" + API_KEY + "&q=" + city + "&dt=" + LocalDate.now().plusMonths(1);
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
-        return ResponseEntity.ok().body(response.getBody());
+        JSONParser parser = new JSONParser();
+        try {
+            JSONObject json = (JSONObject) parser.parse(response.getBody());
+            return ResponseEntity.ok().body(json);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
